@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class TireBehavior : MonoBehaviour
 {
-    public SpringJoint spring;
-    public Transform strut;
-
+    public Rigidbody wheel;
+    public float torks;
     // Use this for initialization
     void Start()
     {
-
+        wheel.maxAngularVelocity = 9000;
 
 
     }
@@ -18,7 +17,12 @@ public class TireBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        spring.connectedAnchor = strut.position + new Vector3(0, 0.2f, 0);
+        if (Input.GetKey("n"))
+        {
+            wheel.AddTorque(new Vector3(torks,0,0), ForceMode.Acceleration);
+
+
+        }
 
 
     }

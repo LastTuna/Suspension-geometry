@@ -967,7 +967,7 @@ HingeJoint:
   m_UseSpring: 1
   m_Spring:
     spring: 50
-    damper: 5
+    damper: 50
     targetPosition: 1
   m_UseMotor: 0
   m_Motor:
@@ -1043,6 +1043,7 @@ GameObject:
   - component: {fileID: 553418157}
   - component: {fileID: 553418159}
   - component: {fileID: 553418158}
+  - component: {fileID: 553418160}
   m_Layer: 0
   m_Name: FL
   m_TagString: Untagged
@@ -1115,6 +1116,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 96
   m_CollisionDetection: 0
+--- !u!114 &553418160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553418156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5eacf3c359ab4428de9973486b9911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheel: {fileID: 553418159}
+  torks: 0
 --- !u!1 &610109646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1214,7 @@ GameObject:
   - component: {fileID: 637943147}
   - component: {fileID: 637943149}
   - component: {fileID: 637943148}
+  - component: {fileID: 637943150}
   m_Layer: 0
   m_Name: RL
   m_TagString: Untagged
@@ -1255,8 +1270,8 @@ HingeJoint:
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 5
+  m_ConnectedMassScale: 3
 --- !u!54 &637943149
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1272,6 +1287,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &637943150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637943146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5eacf3c359ab4428de9973486b9911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheel: {fileID: 637943149}
+  torks: 10
 --- !u!1 &750304562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1347,7 @@ HingeJoint:
   m_UseSpring: 1
   m_Spring:
     spring: 50
-    damper: 5
+    damper: 50
     targetPosition: 1
   m_UseMotor: 0
   m_Motor:
@@ -1860,7 +1888,7 @@ HingeJoint:
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 3
-  m_ConnectedMassScale: 1
+  m_ConnectedMassScale: 3
 --- !u!4 &879782375
 Transform:
   m_ObjectHideFlags: 0
@@ -2322,6 +2350,7 @@ GameObject:
   - component: {fileID: 1012178433}
   - component: {fileID: 1012178432}
   - component: {fileID: 1012178431}
+  - component: {fileID: 1012178434}
   m_Layer: 0
   m_Name: C3 L88 CYLINDER
   m_TagString: Untagged
@@ -2387,6 +2416,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012178434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012178430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ecc6565f0e12f4e8caa169f8d65dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FR: {fileID: 0}
+  FL: {fileID: 0}
+  RL: {fileID: 0}
+  RR: {fileID: 0}
+  currentSpeed: 0
+  wheelRPM: 0
+  engineRPM: 0
+  runnin: 1
+  debugValue1: 0
+  debugValue2: 0
+  debugValue3: 0
+  engineREDLINE: 9000
+  engineTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 130
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 5000
+      value: 250
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 9000
+      value: 200
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  centerOfGravity: {x: 0, y: 0, z: 0.6}
+  gears:
+  - -5
+  - 0
+  - 5.4
+  - 3.4
+  - 2.7
+  - 2
+  - 1.8
+  - 1.6
 --- !u!1 &1019956497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2589,7 @@ GameObject:
   - component: {fileID: 1051066170}
   - component: {fileID: 1051066171}
   - component: {fileID: 1051066172}
+  - component: {fileID: 1051066173}
   m_Layer: 0
   m_Name: FR
   m_TagString: Untagged
@@ -2575,6 +2662,19 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1051066173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051066169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5eacf3c359ab4428de9973486b9911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheel: {fileID: 1051066171}
+  torks: 0
 --- !u!1 &1061471228
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,7 +3668,7 @@ HingeJoint:
   m_UseSpring: 1
   m_Spring:
     spring: 50
-    damper: 5
+    damper: 50
     targetPosition: 1
   m_UseMotor: 0
   m_Motor:
@@ -3650,7 +3750,7 @@ HingeJoint:
   m_UseSpring: 1
   m_Spring:
     spring: 50
-    damper: 5
+    damper: 50
     targetPosition: 1
   m_UseMotor: 0
   m_Motor:
@@ -3977,6 +4077,7 @@ GameObject:
   - component: {fileID: 1638899187}
   - component: {fileID: 1638899188}
   - component: {fileID: 1638899189}
+  - component: {fileID: 1638899190}
   m_Layer: 0
   m_Name: RR
   m_TagString: Untagged
@@ -4047,8 +4148,21 @@ HingeJoint:
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 5
+  m_ConnectedMassScale: 3
+--- !u!114 &1638899190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638899186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5eacf3c359ab4428de9973486b9911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheel: {fileID: 1638899188}
+  torks: 10
 --- !u!1 &1653928122
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,7 +4248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1675903519
 Transform:
   m_ObjectHideFlags: 0
@@ -4367,7 +4481,7 @@ HingeJoint:
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 3
-  m_ConnectedMassScale: 1
+  m_ConnectedMassScale: 3
 --- !u!4 &1776603085
 Transform:
   m_ObjectHideFlags: 0
@@ -4579,7 +4693,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 1012178431}
   m_Anchor: {x: -0.02, y: 0.23, z: 0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: -0.845, y: -0.3, z: -1.44}
+  m_ConnectedAnchor: {x: -0.845, y: -0.3, z: -1.435}
   serializedVersion: 2
   m_Spring: 10000
   m_Damper: 300
@@ -4874,9 +4988,9 @@ SpringJoint:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1904889971}
   m_ConnectedBody: {fileID: 1012178431}
-  m_Anchor: {x: 0.02, y: 0.23, z: 0}
+  m_Anchor: {x: 0.02, y: 0.23, z: -0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 0.845, y: -0.3, z: -1.44}
+  m_ConnectedAnchor: {x: 0.845, y: -0.3, z: -1.435}
   serializedVersion: 2
   m_Spring: 10000
   m_Damper: 300
@@ -5318,6 +5432,7 @@ GameObject:
   - component: {fileID: 2020972408}
   - component: {fileID: 2020972407}
   - component: {fileID: 2020972406}
+  - component: {fileID: 2020972410}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5388,6 +5503,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 64.496, z: 0}
+--- !u!114 &2020972410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020972405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b8d154f437b214baed832433bf98b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 1012178433}
+  interiorCam: {fileID: 0}
+  distance: 6.4
+  height: 1.4
+  rotationDamping: 3
+  heightDamping: 2
+  zoomRatio: 0.5
+  DefaultFOV: 60
+  chosenCamera: 0
 --- !u!1 &2029405795
 GameObject:
   m_ObjectHideFlags: 0
